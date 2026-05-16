@@ -1,0 +1,174 @@
+NAME: Vidhya Sree Narayanappa
+EMAIL: vidhyasreenarayanappa@gmail.com
+PHONE: (857) 230-4249
+LOCATION: Boston, MA
+LINKEDIN: https://www.linkedin.com/in/vidhya-sree-n/
+GITHUB: https://github.com/VidhyaSree-N
+
+================================================================================
+SUMMARY
+================================================================================
+Full-stack software engineer with 5+ years of experience building production
+systems across iOS, web, backend, and cloud infrastructure. Currently the
+primary engineer at RoWorks AI, building a physical AI and robotics automation
+platform end to end — from iOS AR scanning to AWS Lambda pipelines to React
+dashboards. Background spans enterprise software at Target Corporation and
+academic research at UMass Boston. Published at IEEE VIS 2024.
+
+================================================================================
+CURRENT ROLE
+================================================================================
+Full Stack Software Engineer — RoWorks AI
+Boston, MA | Jan 2024 – Present
+
+RoWorks AI is a physical AI and robotics automation platform that analyzes
+manufacturing facility data and generates robot configuration recommendations
+and deployment plans.
+
+Responsibilities and achievements:
+- Primary engineer across iOS, web, and AWS backend for the entire platform
+- Built iOS app (RoWorks) with ARKit/RealityKit 3D bounding box
+  visualization, LiDAR scanning, spatial video capture, and ZIP scan uploads to S3
+- Designed background upload pipeline with adaptive exponential backoff and
+  consecutive-401 threshold logic to handle Lambda cold starts gracefully
+- Built two-stage AI perception pipeline: Stage 1 (GroundingDINO for equipment
+  detection) + Stage 2 (SAMURAI tracking) running on EC2 with CUDA/GPU support
+- Architected event-driven Lambda/SQS pipeline for async robotics data processing
+- Built React web marketplace and customer/integrator dashboard from scratch
+- Implemented role-based auth, DocuSign NDA signing flow with multi-party
+  templates and embedded signing via WKWebView in iOS
+- Built admin dashboard (Node.js/Express on port 3020, Nginx at admin.roworks.ai)
+  with SSL via Let's Encrypt
+- Push notification system using APNs + AWS SNS + SQS (sandbox/production aligned)
+- Microservices architecture: auth (3010), projects (3006), robot catalog (3002),
+  AI assistant (3015), beta signup (3005) — all on Docker/EC2 behind ALB
+- PostgreSQL for user/project data, MongoDB for robot catalog
+- AWS infrastructure: Lambda, EC2, S3, SQS, SNS, Amplify, ALB, Nginx
+- Evaluated Azure-equivalent services for cross-cloud portability planning
+
+================================================================================
+PREVIOUS EXPERIENCE
+================================================================================
+Software Engineer — Target Corporation
+Minneapolis, MN | Jun 2022 – Dec 2023
+
+- Built Java and .NET Core microservices for inventory management workflows
+  handling millions of SKUs across Target's retail supply chain
+- Reduced system downtime by 15% through Airflow and Rundeck orchestration
+- Cut AWS infrastructure costs by 10% via pipeline optimization
+- Containerized services with Docker, streamlined CI/CD pipelines
+- Collaborated cross-functionally with product, QA, and platform engineering teams
+
+--------------------------------------------------------------------------------
+Graduate Software Engineer — Machine Psychology Lab, UMass Boston
+Boston, MA | Jul 2023 – Oct 2025
+
+- Built Boostlet.js — a JavaScript plugin system for scientific image
+  visualization via browser injection, published at IEEE VIS 2024
+- Developed OSDMeasure and OSDGrid plugins for biomedical imaging workflows
+  using OpenSeadragon and WebGL
+- Co-authored OMAMA-DB, a mammography research dataset
+- Built full-stack gamified research participation platform (React, Node.js,
+  Python) with ML behavioral classifier
+- Received Student of the Month recognition
+
+================================================================================
+SKILLS
+================================================================================
+Mobile:
+  Swift, SwiftUI, UIKit, ARKit, RealityKit, LiDAR, AVFoundation,
+  CoreData, CoreLocation, Push Notifications (APNs), Xcode, TestFlight
+
+Frontend:
+  React, Next.js, TypeScript, JavaScript (ES6+), HTML5, CSS3,
+  Tailwind CSS, Redux, Three.js, WebGL, D3.js
+
+Backend:
+  Node.js, Express, Python, FastAPI, Java, .NET Core / C#,
+  Spring Boot, REST APIs, microservices architecture
+
+Cloud & Infrastructure:
+  AWS Lambda, EC2, S3, SQS, SNS, Amplify, ALB,
+  Docker, Nginx, CI/CD, GitHub Actions, Let's Encrypt
+
+Databases:
+  PostgreSQL, MongoDB, MySQL, Oracle, SQL Server
+
+AI / ML:
+  OpenAI API, Anthropic (Claude) API, GroundingDINO, SAMURAI,
+  PyTorch, TensorFlow, CoreML, OpenCV, Scikit-learn, RAG, LangChain,
+  Isaac Sim integration
+
+Tools:
+  Git, Xcode, VS Code, Postman, Tableau, Figma, DocuSign API, Slack API
+
+================================================================================
+PROJECTS
+================================================================================
+1. RoWorks AI — iOS App (RoWorksDataCollection)
+   Tags: Swift, SwiftUI, ARKit, RealityKit, LiDAR, AWS S3, Lambda
+   - AR scanning with 3D bounding box placement and corner drag handles
+   - Cyan wireframe rendering with invisible collision spheres for precise
+     robotics workspace measurement
+   - LiDAR scan capture producing directory bundles, ZIP-compressed before upload
+   - Parallel multi-file upload pipeline with presigned S3 URLs (5-phase orchestration)
+   - Adaptive polling with exponential backoff (5s→15s→30s→60s, 70-iteration cap)
+   - Results polling with consecutive-401 threshold to avoid forced logout on
+     Lambda throttling
+
+2. RoWorks AI — Web Platform
+   Tags: React, Node.js, PostgreSQL, MongoDB, AWS Lambda, Docker, Nginx
+   - Full customer and integrator marketplace dashboard built from scratch
+   - Role-based auth with email verification gating
+   - DocuSign NDA signing flow with multi-party templates
+   - AI chat assistant powered by Gemini API
+   - Microservices architecture across 6 services on Docker/EC2
+   - CSP/CORS resolution across Amplify, ALB, and microservices
+   - Beta signup microservice (port 3005, routed via ALB for /beta/*)
+
+3. RoWorks AI — Admin Dashboard
+   Tags: Node.js, Express, PostgreSQL, Nginx, SSL
+   - Internal admin tool at admin.roworks.ai built from scratch
+   - Queries PostgreSQL directly for user and project management
+   - Token auth, user/project/file browsing, usage stats
+   - Nginx reverse proxy with Let's Encrypt SSL
+
+4. Push Notification System
+   Tags: APNs, AWS SNS, SQS, Node.js, PostgreSQL
+   - End-to-end push notification pipeline for RoWorks platform
+   - EC2 perception service publishes completion events to SQS
+   - Node.js consumer triggers APNs via SNS on job completion/failure
+   - Device tokens stored in PostgreSQL, sandbox/production aligned
+
+5. Boostlet.js — IEEE VIS 2024
+   Tags: JavaScript, WebGL, OpenSeadragon, Open Source
+   - Published at IEEE VIS 2024 (peer-reviewed)
+   - JS plugin system for scientific image visualization via browser injection
+   - OSDMeasure + OSDGrid plugins for biomedical imaging
+   - Co-authored OMAMA-DB mammography research dataset
+
+6. Gamified Research Platform — Machine Psychology Lab
+   Tags: React, Node.js, Python, ML, PostgreSQL
+   - Full-stack gamified participation tracking for UMass Boston research lab
+   - ML behavioral classifier for participant data analysis
+   - Student of the Month recognition
+
+7. Vinni AI — Personal AI Agent (this project)
+   Tags: Python, OpenAI, RAG, ChromaDB, Whisper, TTS
+   - Personal voice and text AI agent that answers questions about Vidhya
+   - RAG pipeline using profile data as knowledge base
+   - Voice input via Whisper STT, voice output via OpenAI TTS
+   - Deployed on portfolio site at (URL TBD)
+
+================================================================================
+EDUCATION
+================================================================================
+(Add your degree, university, and graduation year here)
+
+================================================================================
+INTERESTS & GOALS
+================================================================================
+- Building real AI-powered products, not just demos
+- Physical AI, robotics, and autonomous systems
+- Full-stack engineering at the intersection of AI and infrastructure
+- Open to full-stack, iOS, or AI engineer roles at AI-focused startups

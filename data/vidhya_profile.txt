@@ -6,169 +6,357 @@ LINKEDIN: https://www.linkedin.com/in/vidhya-sree-n/
 GITHUB: https://github.com/VidhyaSree-N
 
 ================================================================================
-SUMMARY
+PERSONAL SUMMARY AND INTRODUCTION
 ================================================================================
-Full-stack software engineer with 5+ years of experience building production
-systems across iOS, web, backend, and cloud infrastructure. Currently the
-primary engineer at RoWorks AI, building a physical AI and robotics automation
-platform end to end — from iOS AR scanning to AWS Lambda pipelines to React
-dashboards. Background spans enterprise software at Target Corporation and
-academic research at UMass Boston. Published at IEEE VIS 2024.
+PERSONAL SUMMARY: Vidhya Sree Narayanappa is a full-stack software engineer
+with 5+ years of experience building production systems across iOS, web,
+backend, and cloud infrastructure. She is currently the primary engineer at
+RoWorks AI in Boston, building a physical AI and robotics automation platform
+end to end. Her background spans enterprise software engineering at Target
+Corporation, academic research and teaching at UMass Boston, and open source
+contributions published at IEEE VIS 2024. She holds a Master of Science in
+Computer Science from University of Massachusetts Boston (Dec 2024) and a
+Bachelor of Engineering from Siddaganga Institute of Technology, India (May 2020).
+She is open to full-stack, iOS, or AI engineer roles at AI-focused companies.
+She is based in Boston, MA and open to remote or hybrid roles.
 
 ================================================================================
-CURRENT ROLE
+EDUCATION BACKGROUND AND DEGREES
 ================================================================================
-Full Stack Software Engineer — RoWorks AI
-Boston, MA | Jan 2024 – Present
+EDUCATION: Master of Science in Computer Science
+University of Massachusetts Boston, Boston MA
+Graduated: December 2024
+Maintained strong academic performance while simultaneously working full time
+as a software engineer, contributing to peer reviewed research publications,
+and mentoring graduate students as a Teaching Assistant.
+
+EDUCATION: Bachelor of Engineering in Computer Science
+Siddaganga Institute of Technology, Tumkur, India
+Graduated: May 2020
+
+================================================================================
+CURRENT JOB AND CURRENT ROLE AT ROWORKS AI
+================================================================================
+CURRENT JOB: Full Stack Software Engineer at RoWorks AI
+Location: Boston, MA
+Period: January 2024 to Present
 
 RoWorks AI is a physical AI and robotics automation platform that analyzes
 manufacturing facility data and generates robot configuration recommendations
-and deployment plans.
+and deployment plans for factories and warehouses.
 
-Responsibilities and achievements:
-- Primary engineer across iOS, web, and AWS backend for the entire platform
-- Built iOS app (RoWorks) with ARKit/RealityKit 3D bounding box
-  visualization, LiDAR scanning, spatial video capture, and ZIP scan uploads to S3
-- Designed background upload pipeline with adaptive exponential backoff and
-  consecutive-401 threshold logic to handle Lambda cold starts gracefully
-- Built two-stage AI perception pipeline: Stage 1 (GroundingDINO for equipment
-  detection) + Stage 2 (SAMURAI tracking) running on EC2 with CUDA/GPU support
-- Architected event-driven Lambda/SQS pipeline for async robotics data processing
-- Built React web marketplace and customer/integrator dashboard from scratch
-- Implemented role-based auth, DocuSign NDA signing flow with multi-party
-  templates and embedded signing via WKWebView in iOS
-- Built admin dashboard (Node.js/Express on port 3020, Nginx at admin.roworks.ai)
-  with SSL via Let's Encrypt
-- Push notification system using APNs + AWS SNS + SQS (sandbox/production aligned)
-- Microservices architecture: auth (3010), projects (3006), robot catalog (3002),
-  AI assistant (3015), beta signup (3005) — all on Docker/EC2 behind ALB
-- PostgreSQL for user/project data, MongoDB for robot catalog
-- AWS infrastructure: Lambda, EC2, S3, SQS, SNS, Amplify, ALB, Nginx
-- Evaluated Azure-equivalent services for cross-cloud portability planning
+Vidhya is the primary engineer responsible for the entire RoWorks platform
+including the iOS app, web dashboard, backend microservices, and AWS cloud
+infrastructure. She collaborates with teammates Apoorv Chaudhri (backend and
+infrastructure lead), Binu, and Mohamed on the platform.
 
 ================================================================================
-PREVIOUS EXPERIENCE
+iOS WORK EXPERIENCE AND iOS PROJECT AT ROWORKS AI
 ================================================================================
-Software Engineer — Target Corporation
-Minneapolis, MN | Jun 2022 – Dec 2023
+iOS EXPERIENCE AND iOS PROJECT: Vidhya built the RoWorks iOS app entirely
+from scratch in Swift and SwiftUI at RoWorks AI. The app is the primary data
+collection tool used by manufacturing clients to capture facility data for
+AI-powered robotics planning and robot configuration recommendations.
 
+iOS app features and technical achievements:
+- Built the complete RoWorks iOS app end to end from scratch including all
+  screens, navigation, state management, and cloud integration
+- Implemented ARKit and RealityKit powered 3D bounding box visualization
+  system with corner drag handles, cyan wireframe rendering, and invisible
+  collision spheres for precise robotics workspace measurement on device
+- Built LiDAR scan capture pipeline producing directory bundles which are
+  ZIP compressed before upload to AWS S3
+- Implemented MultiFileUploader with 5-phase orchestration pipeline using
+  presigned S3 URLs for parallel file uploads to AWS
+- Built adaptive exponential backoff polling from 5s to 15s to 30s to 60s
+  intervals with 70-iteration cap for Lambda-based AI inference results
+- Implemented consecutive-401 threshold logic to avoid forced logout during
+  Lambda cold starts and throttling
+- Built PostCaptureSheet UI with PayloadScan and EquipmentScan type detection
+  via object bounds JSON parsing
+- Implemented WKWebView embedded DocuSign NDA signing flow inside the iOS app
+- Built push notification handling using APNs integrated with AWS SNS and SQS
+- Fixed GPU hang in VideoBackgroundBlurrer using dedicated serial DispatchQueue
+- Fixed AR and camera session race conditions and bounding box raycast using
+  normalized vs pixel coordinates
+- Distributed the RoWorks app via TestFlight for beta testing with clients
+
+iOS tech stack: Swift, SwiftUI, ARKit, RealityKit, LiDAR, AVFoundation,
+CoreData, CoreLocation, WKWebView, APNs, Xcode, TestFlight, AWS S3
+
+================================================================================
+WEB FRONTEND EXPERIENCE AND WEB PROJECT AT ROWORKS AI
+================================================================================
+WEB EXPERIENCE AND WEB PROJECT: Vidhya built the RoWorks web marketplace
+and customer dashboard entirely from scratch in React at RoWorks AI.
+
+Web frontend work and achievements:
+- Built full customer and system integrator marketplace dashboard from scratch
+- Implemented role-based authentication with email verification gating
+- Built DocuSign NDA signing flow with multi-party templates for project access
+- Implemented OEM and system integrator robot catalog search and browsing
+- Built project invitation and acceptance flow across different user roles
+- Designed unified auth page consolidating role-based portals into one page
+- Fixed CSP and CORS issues across Amplify, ALB, and microservices
+- Built beta signup microservice frontend routed via ALB for the /beta/ path
+- Integrated Gemini AI chat assistant into the web dashboard for clients
+
+Web tech stack: React, TypeScript, JavaScript ES6+, HTML5, CSS3,
+Tailwind CSS, Redux, AWS Amplify
+
+================================================================================
+BACKEND EXPERIENCE AND BACKEND PROJECT AT ROWORKS AI
+================================================================================
+BACKEND EXPERIENCE AND BACKEND PROJECT: Vidhya architected and built the
+entire backend microservices infrastructure for RoWorks AI from scratch.
+
+Backend work and microservices built:
+- Auth microservice on port 3010 for JWT-based authentication and authorization
+- Projects microservice on port 3006 for project lifecycle and file management
+- Robot catalog microservice on port 3002 backed by MongoDB for OEM and SI robots
+- AI assistant microservice on port 3015 powered by Gemini API for robotics chat
+- Beta signup microservice on port 3005 for waitlist management via ALB
+- Admin dashboard service on port 3020 deployed at admin.roworks.ai with
+  Nginx reverse proxy and Let's Encrypt SSL certificate
+- Built event-driven Lambda and SQS pipeline for async robotics data processing
+- Implemented two-stage AI perception pipeline: Stage 1 uses GroundingDINO for
+  equipment detection, Stage 2 uses SAMURAI for object tracking on EC2 with GPU
+- Built push notification system using APNs, AWS SNS, and SQS with
+  sandbox and production environment alignment
+- Managed PostgreSQL database for user and project data
+- Used MongoDB for robot catalog data from OEM and SI partners
+- Architected complete AWS infrastructure: Lambda, EC2, S3, SQS, SNS, ALB
+
+Backend tech stack: Node.js, Express, Python, FastAPI, PostgreSQL, MongoDB,
+Docker, Nginx, AWS Lambda, EC2, S3, SQS, SNS, ALB, Amplify, Let's Encrypt
+
+================================================================================
+PREVIOUS JOB AT TARGET CORPORATION SOFTWARE ENGINEER
+================================================================================
+PREVIOUS ROLE AND WORK EXPERIENCE: Software Engineer at Target Corporation
+Location: India (remote for Target US operations)
+Period: August 2020 to January 2023
+
+Work experience and achievements at Target Corporation:
 - Built Java and .NET Core microservices for inventory management workflows
-  handling millions of SKUs across Target's retail supply chain
-- Reduced system downtime by 15% through Airflow and Rundeck orchestration
-- Cut AWS infrastructure costs by 10% via pipeline optimization
-- Containerized services with Docker, streamlined CI/CD pipelines
-- Collaborated cross-functionally with product, QA, and platform engineering teams
+  handling millions of SKUs across Target's retail supply chain operations
+- Reduced system downtime by 15% through Apache Airflow and Rundeck pipeline
+  orchestration with LDAP-based authentication
+- Cut AWS infrastructure costs by 10% via pipeline and resource optimization
+- Containerized microservices using Docker enabling faster CI/CD cycles
+- Participated in Agile sprints, code reviews, defect triaging, and 24x7
+  on-call production support rotations
+- Collaborated cross-functionally with product, QA, and platform engineering
+- Received Excellence Twine Mentor award for contributions and mentorship
 
---------------------------------------------------------------------------------
-Graduate Software Engineer — Machine Psychology Lab, UMass Boston
-Boston, MA | Jul 2023 – Oct 2025
-
-- Built Boostlet.js — a JavaScript plugin system for scientific image
-  visualization via browser injection, published at IEEE VIS 2024
-- Developed OSDMeasure and OSDGrid plugins for biomedical imaging workflows
-  using OpenSeadragon and WebGL
-- Co-authored OMAMA-DB, a mammography research dataset
-- Built full-stack gamified research participation platform (React, Node.js,
-  Python) with ML behavioral classifier
-- Received Student of the Month recognition
+Tech stack: Java, Spring Boot, .NET Core, C#, Docker, AWS, Apache Airflow,
+Rundeck, PostgreSQL, CI/CD, GitHub Actions, LDAP
 
 ================================================================================
-SKILLS
+TEACHING ASSISTANT EXPERIENCE AT UMASS BOSTON
 ================================================================================
-Mobile:
-  Swift, SwiftUI, UIKit, ARKit, RealityKit, LiDAR, AVFoundation,
-  CoreData, CoreLocation, Push Notifications (APNs), Xcode, TestFlight
+TEACHING EXPERIENCE: Teaching Assistant at University of Massachusetts Boston
+Location: Boston, MA
+Period: January 2024 to December 2024
 
-Frontend:
-  React, Next.js, TypeScript, JavaScript (ES6+), HTML5, CSS3,
-  Tailwind CSS, Redux, Three.js, WebGL, D3.js
-
-Backend:
-  Node.js, Express, Python, FastAPI, Java, .NET Core / C#,
-  Spring Boot, REST APIs, microservices architecture
-
-Cloud & Infrastructure:
-  AWS Lambda, EC2, S3, SQS, SNS, Amplify, ALB,
-  Docker, Nginx, CI/CD, GitHub Actions, Let's Encrypt
-
-Databases:
-  PostgreSQL, MongoDB, MySQL, Oracle, SQL Server
-
-AI / ML:
-  OpenAI API, Anthropic (Claude) API, GroundingDINO, SAMURAI,
-  PyTorch, TensorFlow, CoreML, OpenCV, Scikit-learn, RAG, LangChain,
-  Isaac Sim integration
-
-Tools:
-  Git, Xcode, VS Code, Postman, Tableau, Figma, DocuSign API, Slack API
+Teaching and mentoring work at UMass Boston:
+- Mentored 100+ graduate students across three simultaneous graduate level
+  courses covering WebGL, Three.js, D3.js, Tableau, and Biomedical Signal
+  Processing with hands on project mentorship and weekly office hours
+- Facilitated learning in Biomedical Image and Signal Processing helping
+  students reconstruct and analyze complex medical imaging datasets from
+  MRI, CT, and ultrasound modalities using Python and NumPy
+- Achieved 95% project success rate across all student cohorts
+- Collaborated with faculty to design coursework and develop assessment materials
+- Provided structured feedback, grading, and one to one student support sessions
 
 ================================================================================
-PROJECTS
+RESEARCH EXPERIENCE AND PUBLICATIONS AT MACHINE PSYCHOLOGY LAB
 ================================================================================
-1. RoWorks AI — iOS App (RoWorksDataCollection)
-   Tags: Swift, SwiftUI, ARKit, RealityKit, LiDAR, AWS S3, Lambda
-   - AR scanning with 3D bounding box placement and corner drag handles
-   - Cyan wireframe rendering with invisible collision spheres for precise
-     robotics workspace measurement
-   - LiDAR scan capture producing directory bundles, ZIP-compressed before upload
-   - Parallel multi-file upload pipeline with presigned S3 URLs (5-phase orchestration)
-   - Adaptive polling with exponential backoff (5s→15s→30s→60s, 70-iteration cap)
-   - Results polling with consecutive-401 threshold to avoid forced logout on
-     Lambda throttling
+RESEARCH PUBLICATIONS AND ACADEMIC WORK: Vidhya published three peer reviewed
+papers. Graduate Software Engineer and Researcher
+at Machine Psychology Lab, University of Massachusetts Boston
+Location: Boston, MA
+Period: July 2023 to October 2025
 
-2. RoWorks AI — Web Platform
-   Tags: React, Node.js, PostgreSQL, MongoDB, AWS Lambda, Docker, Nginx
-   - Full customer and integrator marketplace dashboard built from scratch
-   - Role-based auth with email verification gating
-   - DocuSign NDA signing flow with multi-party templates
-   - AI chat assistant powered by Gemini API
-   - Microservices architecture across 6 services on Docker/EC2
-   - CSP/CORS resolution across Amplify, ALB, and microservices
-   - Beta signup microservice (port 3005, routed via ALB for /beta/*)
+Research work, publications, and open source contributions:
+- Published Boostlet.js at IEEE VIS 2024 Short Papers — a JavaScript plugin
+  system for scientific image visualization via browser injection
+- Developed OSDMeasure plugin for precision measurement tools in biomedical
+  imaging using OpenSeadragon and WebGL
+- Developed OSDGrid plugin for grid overlays in scientific visualization
+- Co-authored OMAMA-DB: The Oregon-Massachusetts Mammography Database accepted
+  to Journal of Medical Imaging — a mammography research dataset
+- Co-authored Apprenticeship Learning-Based Load Balancing Technique for Cloud
+  Environment published by Springer 2019
+- Built full-stack gamified research participation platform using React,
+  Node.js, and Python with an ML behavioral classifier using Scikit-learn
+- Received Student of the Month recognition for research contributions
+- OSDMeasure and OSDGrid plugins adopted across scientific research platforms
 
-3. RoWorks AI — Admin Dashboard
-   Tags: Node.js, Express, PostgreSQL, Nginx, SSL
-   - Internal admin tool at admin.roworks.ai built from scratch
-   - Queries PostgreSQL directly for user and project management
-   - Token auth, user/project/file browsing, usage stats
-   - Nginx reverse proxy with Let's Encrypt SSL
-
-4. Push Notification System
-   Tags: APNs, AWS SNS, SQS, Node.js, PostgreSQL
-   - End-to-end push notification pipeline for RoWorks platform
-   - EC2 perception service publishes completion events to SQS
-   - Node.js consumer triggers APNs via SNS on job completion/failure
-   - Device tokens stored in PostgreSQL, sandbox/production aligned
-
-5. Boostlet.js — IEEE VIS 2024
-   Tags: JavaScript, WebGL, OpenSeadragon, Open Source
-   - Published at IEEE VIS 2024 (peer-reviewed)
-   - JS plugin system for scientific image visualization via browser injection
-   - OSDMeasure + OSDGrid plugins for biomedical imaging
-   - Co-authored OMAMA-DB mammography research dataset
-
-6. Gamified Research Platform — Machine Psychology Lab
-   Tags: React, Node.js, Python, ML, PostgreSQL
-   - Full-stack gamified participation tracking for UMass Boston research lab
-   - ML behavioral classifier for participant data analysis
-   - Student of the Month recognition
-
-7. Vinni AI — Personal AI Agent (this project)
-   Tags: Python, OpenAI, RAG, ChromaDB, Whisper, TTS
-   - Personal voice and text AI agent that answers questions about Vidhya
-   - RAG pipeline using profile data as knowledge base
-   - Voice input via Whisper STT, voice output via OpenAI TTS
-   - Deployed on portfolio site at (URL TBD)
+Tech stack: JavaScript, WebGL, OpenSeadragon, React, Node.js, Python,
+PyTorch, Scikit-learn, CNN, PostgreSQL, NumPy
 
 ================================================================================
-EDUCATION
+TECHNICAL SKILLS — ALL TECHNOLOGIES AND LANGUAGES
 ================================================================================
-(Add your degree, university, and graduation year here)
+iOS AND MOBILE DEVELOPMENT SKILLS:
+Swift, SwiftUI, UIKit, ARKit, RealityKit, LiDAR scanning, AVFoundation,
+CoreData, CoreLocation, Push Notifications APNs, WKWebView, React Native,
+Xcode, TestFlight, App Store deployment, iOS background processing
+
+FRONTEND AND WEB DEVELOPMENT SKILLS:
+React, Next.js, TypeScript, JavaScript ES6+, HTML5, CSS3, Tailwind CSS,
+Redux, Three.js, WebGL, D3.js, Webpack, OpenSeadragon
+
+BACKEND DEVELOPMENT SKILLS:
+Node.js, Express, Python, FastAPI, Java, Spring Boot, .NET Core, C#,
+REST APIs, GraphQL, microservices architecture, Apache Airflow, Rundeck
+
+CLOUD AND INFRASTRUCTURE SKILLS:
+AWS Lambda, EC2, S3, SQS, SNS, Amplify, ALB, Docker, Nginx,
+CI/CD pipelines, GitHub Actions, Linux, Bash scripting, Let's Encrypt SSL,
+Kubernetes, Azure Functions, Azure Blob Storage
+
+DATABASE SKILLS:
+PostgreSQL, MongoDB, MySQL, Oracle, SQL Server, schema design,
+query optimization, indexing, data modeling, database migration
 
 ================================================================================
-INTERESTS & GOALS
+AI AND MACHINE LEARNING SKILLS AND TECHNOLOGIES VIDHYA KNOWS
 ================================================================================
-- Building real AI-powered products, not just demos
-- Physical AI, robotics, and autonomous systems
-- Full-stack engineering at the intersection of AI and infrastructure
-- Open to full-stack, iOS, or AI engineer roles at AI-focused startups
+OpenAI API, Anthropic Claude API, Google Gemini API, GroundingDINO, SAMURAI,
+RAG pipelines, LangChain, LlamaIndex, vector databases, Qdrant, ChromaDB,
+embeddings, prompt engineering, PyTorch, TensorFlow, CoreML, OpenCV,
+Scikit-learn, CNN classifiers, Isaac Sim integration
+OpenAI API, Anthropic Claude API, Google Gemini API, GroundingDINO, SAMURAI,
+PyTorch, TensorFlow, CoreML, OpenCV, Scikit-learn, CNN classifiers,
+RAG pipelines, LangChain, LlamaIndex, vector databases, Qdrant, ChromaDB,
+embeddings, prompt engineering, Isaac Sim integration
+
+TOOLS AND PLATFORMS:
+Git, Xcode, VS Code, Postman, Tableau, Figma, DocuSign API, Slack API,
+LDAP, SonarQube, Jira, Agile, DevSecOps, SAFe
+
+================================================================================
+iOS PROJECT DETAIL — ROWORKS AI iOS APP
+================================================================================
+iOS PROJECT DETAIL: RoWorks AI — RoWorks iOS App
+Tags: Swift, SwiftUI, ARKit, RealityKit, LiDAR, AWS S3, Lambda, APNs
+
+Detailed description of the RoWorks iOS app built by Vidhya:
+- Primary data collection iOS app for manufacturing clients at RoWorks AI
+- AR scanning with 3D bounding box placement, corner drag handles, cyan
+  wireframe rendering, invisible collision spheres for workspace measurement
+- LiDAR scan capture producing directory bundles, ZIP-compressed before S3 upload
+- Parallel multi-file upload with presigned S3 URLs in 5-phase orchestration
+- Adaptive polling with exponential backoff 5s to 60s with 70-iteration cap
+- Consecutive-401 threshold to handle Lambda throttling without forced logout
+- PostCaptureSheet with PayloadScan and EquipmentScan type detection
+- WKWebView embedded DocuSign NDA signing inside the app
+- Push notifications via APNs and AWS SNS and SQS
+- GPU hang fix in VideoBackgroundBlurrer using dedicated serial DispatchQueue
+- Distributed via TestFlight to real manufacturing clients
+
+================================================================================
+WEB PROJECT DETAIL — ROWORKS AI WEB PLATFORM
+================================================================================
+WEB PROJECT DETAIL: RoWorks AI — Web Marketplace and Customer Dashboard
+Tags: React, Node.js, PostgreSQL, MongoDB, AWS Lambda, Docker, Nginx
+
+Detailed description of the RoWorks web platform built by Vidhya:
+- Full customer and integrator web marketplace dashboard built from scratch
+- Role-based authentication with email verification gating
+- DocuSign NDA signing flow with multi-party templates for project access
+- OEM and SI robot catalog search and browsing
+- Project invitation and acceptance flow across user roles
+- Admin dashboard at admin.roworks.ai with Nginx and Let's Encrypt SSL
+- Beta signup microservice routed via ALB for /beta/ path
+- CSP and CORS fixes across Amplify, ALB, and microservices
+- Gemini AI chat assistant integrated for manufacturing clients
+
+================================================================================
+BACKEND PROJECT DETAIL — ROWORKS AI MICROSERVICES
+================================================================================
+BACKEND PROJECT DETAIL: RoWorks AI — Backend Microservices and AWS Infrastructure
+Tags: Node.js, Python, PostgreSQL, MongoDB, AWS Lambda, EC2, Docker, SQS, SNS
+
+Detailed description of the backend infrastructure built by Vidhya:
+- Six microservices: auth 3010, projects 3006, robot catalog 3002,
+  AI assistant 3015, beta signup 3005, admin dashboard 3020
+- Two-stage AI perception: GroundingDINO equipment detection plus
+  SAMURAI object tracking running on EC2 with CUDA GPU support
+- Event-driven Lambda and SQS async pipeline for robotics data processing
+- Push notifications using APNs plus SNS plus SQS
+- Admin dashboard at admin.roworks.ai with Node.js, Express, Nginx, SSL
+- PostgreSQL for user and project data, MongoDB for robot catalog
+
+================================================================================
+OPEN SOURCE AND RESEARCH PROJECT — BOOSTLET JS IEEE VIS 2024
+================================================================================
+OPEN SOURCE PROJECT AND RESEARCH PUBLICATION: Boostlet.js published at IEEE VIS 2024
+Tags: JavaScript, WebGL, OpenSeadragon, Open Source, Peer Reviewed Publication
+
+Details of the Boostlet.js open source research project:
+- JavaScript plugin system for scientific image visualization via browser injection
+- Published as a peer reviewed paper at IEEE VIS 2024 Short Papers conference
+- OSDMeasure plugin for precision measurement in biomedical imaging workflows
+- OSDGrid plugin for grid overlays in scientific visualization tools
+- Plugins adopted across scientific research platforms at UMass Boston
+- Co-authored OMAMA-DB mammography database accepted to Journal of Medical Imaging
+- Co-authored Apprenticeship Learning paper published by Springer 2019
+
+================================================================================
+AI AGENT PROJECT — VINNI AI PERSONAL AGENT
+================================================================================
+AI PROJECT AND PERSONAL PROJECT: Vinni AI — Personal AI Voice and Text Agent
+Tags: Python, OpenAI, RAG, Qdrant, LangChain, Whisper, TTS, GPT-4o-mini
+
+Details of the Vinni AI agent project built by Vidhya:
+- Personal AI agent that answers questions about Vidhya's background and skills
+- RAG pipeline using LangChain text splitters and Qdrant vector database
+- OpenAI GPT-4o-mini as the language model for responses
+- OpenAI Whisper for speech to text voice input transcription
+- OpenAI TTS or ElevenLabs for voice cloning and text to speech output
+- Built as a standalone project to be integrated into portfolio website
+- Demonstrates practical AI engineering skills including RAG and agents
+
+================================================================================
+RESEARCH AND GAMIFIED PLATFORM PROJECT
+================================================================================
+RESEARCH PROJECT: Gamified Research Participation Platform
+Organization: Machine Psychology Lab, UMass Boston
+Tags: React, Node.js, Python, ML, Scikit-learn, PostgreSQL
+
+Details of the gamified research platform built by Vidhya:
+- Full-stack gamified participation tracking platform for behavioral research
+- ML behavioral classifier for participant data analysis using Scikit-learn
+- CNN-based cancer classification model for real vs synthetic mammogram detection
+- Gale-Shapley algorithm implementation for automated resource allocation
+- React frontend and Node.js backend with PostgreSQL database
+- Received Student of the Month recognition for this research work
+
+================================================================================
+AWARDS RECOGNITION AND ACHIEVEMENTS
+================================================================================
+AWARDS AND ACHIEVEMENTS AND RECOGNITION:
+- Published at IEEE VIS 2024 Short Papers — Boostlet.js peer reviewed paper
+- Co-authored OMAMA-DB — accepted to Journal of Medical Imaging
+- Co-authored Apprenticeship Learning paper — published by Springer 2019
+- OSDMeasure and OSDGrid open source plugins adopted across research platforms
+- Student of the Month award — Machine Psychology Lab, UMass Boston
+- Excellence Twine Mentor Award — Target Corporation
+- 95% project success rate as Teaching Assistant at UMass Boston
+- Mentored 100+ graduate students across three simultaneous courses
+
+================================================================================
+INTERESTS AND CAREER GOALS
+================================================================================
+INTERESTS AND CAREER GOALS:
+Vidhya is passionate about building real AI-powered products not just demos.
+She is interested in physical AI, robotics, and autonomous systems.
+She enjoys full-stack engineering at the intersection of AI and infrastructure.
+She is open to full-stack engineer, iOS engineer, or AI engineer roles at
+AI-focused startups and companies building real impactful products.
+She is based in Boston MA and open to remote or hybrid work arrangements.
+She is actively building AI projects including Vinni AI to deepen her GenAI skills.

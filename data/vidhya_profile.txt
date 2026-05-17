@@ -39,7 +39,7 @@ CURRENT JOB AND CURRENT ROLE AT ROWORKS AI
 ================================================================================
 CURRENT JOB: Full Stack Software Engineer at RoWorks AI
 Location: Boston, MA
-Period: January 2024 to Present
+Period: August 2025 to Present
 
 RoWorks AI is a physical AI and robotics automation platform that analyzes
 manufacturing facility data and generates robot configuration recommendations

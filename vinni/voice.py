@@ -3,6 +3,7 @@ import soundfile as sf
 import numpy as np
 import os
 import torch
+import requests
 from openai import OpenAI
 from dotenv import load_dotenv
 
@@ -101,23 +102,61 @@ def transcribe(audio_path: str) -> str:
     return text
 
 
-def speak(text: str) -> None:
-    """
-    Converts text to speech using OpenAI TTS and plays it.
-    """
-    print("🔊 Speaking...")
+def speak(text: str, output_path: str = "output.wav") -> None:
+    use_resemble = os.getenv("RESEMBLE_API_KEY") and os.getenv("RESEMBLE_VOICE_UUID")
 
+    if use_resemble:
+        try:
+            print("🔊 Speaking (Resemble)...")
+            response = requests.post(
+                os.getenv("RESEMBLE_URL"),
+                headers={
+                    "Authorization": f"Bearer {os.getenv('RESEMBLE_API_KEY')}",
+                    "Content-Type": "application/json"
+                },
+                json={
+                    "voice_uuid": os.getenv("RESEMBLE_VOICE_UUID"),
+                    "data": text
+                },
+                timeout=30
+            )
+
+            if response.status_code == 200:
+                content_type = response.headers.get("content-type", "")
+                if "application/json" in content_type:
+                    # synthesize endpoint — base64 encoded
+                    import base64
+                    data = response.json()
+                    audio_bytes = base64.b64decode(data["audio_content"])
+                else:
+                    # stream endpoint — raw audio bytes
+                    audio_bytes = response.content
+
+                with open(output_path, "wb") as f:
+                    f.write(audio_bytes)
+                if output_path == "output.wav":
+                    os.system(f"afplay {output_path}")
+                return
+
+            else:
+                print(f"⚠️  Resemble failed ({response.status_code}), falling back to OpenAI TTS")
+
+        except Exception as e:
+            print(f"⚠️  Resemble error: {e}, falling back to OpenAI TTS")
+
+    # Fallback — OpenAI TTS
+    print("🔊 Speaking (OpenAI TTS)...")
     response = client.audio.speech.create(
         model="tts-1",
         voice="onyx",
         input=text,
         speed=1.0
     )
-
-    with open(OUTPUT_MP3, "wb") as f:
+    with open(output_path, "wb") as f:
         f.write(response.content)
-
-    os.system(f"afplay {OUTPUT_MP3}")
+    # only play locally
+    if output_path == "output.wav":
+        os.system(f"afplay {output_path}")
 
 
 def voice_loop() -> None:

@@ -1,6 +1,3 @@
-import sounddevice as sd
-import soundfile as sf
-import numpy as np
 import os
 import torch
 import requests
@@ -35,6 +32,9 @@ def load_vad_model():
 
 
 def record_audio() -> str:
+    import sounddevice as sd
+    import soundfile as sf
+    import numpy as np
     """
     Records audio using Voice Activity Detection.
     Automatically starts when you speak and stops after silence.

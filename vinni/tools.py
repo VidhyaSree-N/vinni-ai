@@ -118,7 +118,17 @@ def fetch_github_projects() -> str:
         return json.dumps({"github_projects": projects})
     except Exception as e:
         return json.dumps({"error": f"Could not fetch GitHub projects: {str(e)}"})
-
+    
+def run_job_bot() -> str:
+    import subprocess
+    subprocess.Popen([
+        "osascript", "-e",
+        'tell app "Terminal" to do script "cd ~/Auto_job_applier_linkedIn && source venv/bin/activate && python runAiBot.py"'
+    ])
+    return json.dumps({
+        "status": "Job bot started",
+        "message": "Opening Terminal and starting LinkedIn auto-apply bot now."
+    })
 # ── TOOL DEFINITIONS (what GPT reads) ──────────────────────────
 
 TOOLS = [
@@ -204,6 +214,18 @@ TOOLS = [
                 "required": []
             }
         }
+    },
+    {
+        "type": "function",
+        "function": {
+            "name": "run_job_bot",
+            "description": "Starts the LinkedIn auto job application bot. Use this when Vidhya says 'apply to jobs', 'start job bot', 'auto apply', or anything about running the LinkedIn job applier.",
+            "parameters": {
+                "type": "object",
+                "properties": {},
+                "required": []
+            }
+        }
     }
 ]
 
@@ -225,5 +247,7 @@ def execute_tool(tool_name: str, tool_args: dict) -> str:
         return search_profile(query)
     elif tool_name == "fetch_github_projects":
         return fetch_github_projects()
+    elif tool_name == "run_job_bot":
+        return run_job_bot()
     else:
         return json.dumps({"error": f"Unknown tool: {tool_name}"})
